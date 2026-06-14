@@ -1,9 +1,11 @@
-FROM eclipse-temurin:17
+FROM node:18-alpine
 
 WORKDIR /app
 
-COPY HelloWorld.java .
+COPY package.json .
 
-RUN javac HelloWorld.java
+COPY app.js .
 
-CMD ["java", "HelloWorld"]
+EXPOSE 3000
+
+CMD ["npm", "start"]
